@@ -11,6 +11,7 @@ function Nav(){
             <li>All Blogs</li>
             <li>Post a Blog</li>
             <li>Add a Travel Agency</li>
+            <li>All Travel agency</li>
         </ul>
     </div>
 </div>
