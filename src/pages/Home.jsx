@@ -1,10 +1,10 @@
 import Hero from "../components/Hero";
-import Nav from "../components/Nav";
+import RecentBlogs from "../components/Recentblogs";
 function Home() {
   return (
     <div>
-      <Nav />
       <Hero />
+      <RecentBlogs/>
     </div>
   );
 }

@@ -7,8 +7,8 @@ import Home from "../pages/Home";
 import PostBlog from "../pages/PostBlog";
 import AllBlog from "../pages/AllBlog";
 import Travels from "../pages/Travels";
+import Addblog from "../pages/AddBlog";
 import Dashboard from "../pages/Dashboard";
-
 function Router() {
   return (
     <BrowserRouter>
@@ -34,6 +34,14 @@ function Router() {
           element={
             <Layout>
               <Home />
+            </Layout>
+          }
+        />
+        <Route
+          path="/addblog"
+          element={
+            <Layout>
+              <Addblog />
             </Layout>
           }
         />
