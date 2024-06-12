@@ -7,6 +7,7 @@ import Home from "../pages/Home";
 import PostBlog from "../pages/PostBlog";
 import AllBlog from "../pages/AllBlog";
 import Travels from "../pages/Travels";
+import Dashboard from "../pages/Dashboard";
 
 function Router() {
   return (
@@ -46,6 +47,14 @@ function Router() {
           }
         />
 
+<Route
+          path="/dashboard"
+          element={
+            <Layout>
+              <Dashboard />
+            </Layout>
+          }
+        />
         <Route
           path="/postblog"
           element={
@@ -55,7 +64,7 @@ function Router() {
           }
         />
 
-        <Route
+<Route
           path="/travels"
           element={
             <Layout>
@@ -64,6 +73,8 @@ function Router() {
           }
         />
       </Routes>
+
+      
     </BrowserRouter>
   );
 }
