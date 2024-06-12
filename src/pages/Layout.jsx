@@ -3,9 +3,12 @@ import Nav from "../components/Nav";
 
 function Layout({ children }) {
   return (
-    <div className="min-h-screen">
+    <div>
       <Nav />
-      <main>{children}</main>
+      <main className="min-h-[100vh]">
+
+        {children}
+      </main>
 
       <Footer />
     </div>
