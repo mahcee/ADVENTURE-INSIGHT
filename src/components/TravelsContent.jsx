@@ -34,21 +34,17 @@ function TravelsContent(){
       setError(errors);
       if (!error === false) {
         setLoading(true);
-        const url = "http://localhost:5000/api/auth/signup";
-        const options = {
-          method: "POST",
-          headers: { "content-type": "application/json" },
-          body: JSON.stringify(formData),
-        };
-        const response = await fetch(url, options);
+        const url = "https://adventure-insights-backend.onrender.com/api/company";
+     
+        const response = await fetch(url);
         const data = await response.json().catch((err) => {
-          console.log(err);
+          // console.log(err);
           setLoading(false);
         });
         if (!response.ok) {
           setErrorMessage(data.message);
         } else {
-          navigate("/login");
+          navigate("/allagencies");
         }
         console.log(data);
         console.log(error);
