@@ -5,8 +5,7 @@ function AllArticles() {
   useEffect(() => {
     async function fetchArticles() {
       const url =
-        "https://adventure-insights-backend.onrender.com/api/articles";
-
+     "  https://adventure-insights-backend.onrender.com/api/articles"
       const response = await fetch(url);
 
       const data = await response.json();

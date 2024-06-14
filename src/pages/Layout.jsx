@@ -9,6 +9,8 @@ function Layout({children}) {
       <Footer />
     </div>
   );
+  
 }
 
 export default Layout;
+
