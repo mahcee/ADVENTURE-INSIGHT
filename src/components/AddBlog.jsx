@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { storage } from "../firebase";
+import { ref, uploadString } from "firebase/storage";
+// import loader from "../assets/images/loader.gif";
 function AddBlog() {
   const [formData, setFormData] = useState({});
   const [error, setError] = useState({});
@@ -26,7 +29,7 @@ function AddBlog() {
     setError(errors);
     if (!error === false) {
       const url =
-        "https://adventure-insights-backend.onrender.com/api/articles ";
+        "https://adventure-insights-backend.onrender.com/api/articles/new";
       const options = {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -37,12 +40,34 @@ function AddBlog() {
         console.log(err);
       });
       if (!response.ok) {
-        setErrorMessage(data.mesage);
+        setErrorMessage(data.message);
         console.log(data);
       } else {
         navigate("/allblogs");
       }
     }
+  }
+  function onImageUpload(e) {
+    const file = e.target.files[0];
+
+    const storageRef = ref(storage, `blogs/${file.name}`);
+
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      // setIsLoading(true);
+      const dataImg = reader.result;
+      uploadString(storageRef, dataImg, "data_url").then((snapshot) => {
+        console.log("Uploaded a data_url string!");
+        setFormData((prev) => ({
+          ...prev,
+          coverImg: `https://firebasestorage.googleapis.com/v0/b/adventure-insights.appspot.com/o/blogs%2F${file.name}?alt=media`,
+        }));
+      });
+      console.log(reader.result);
+      // setIsLoading(false);
+    }
+    reader.readAsDataURL(file);
   }
   return (
     <div className="bg-[linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('src/assets/images/hero1.jpg')] h-[140vh] bg-no-repeat bg-cover bg-center">
@@ -55,7 +80,9 @@ function AddBlog() {
               <p className="text-red-500 font bold">{error.file && error.file}</p>
                 <div>
 
-                <input type="file" name="file" onChange={(e) => handleChange(e)} />
+                <input type="file" name="file"  onChange={(e) => onImageUpload(e)} />
+           
+            {formData.coverImg && <img src={formData.coverImg} className="w-[200px]] h-[200px]"/>}
                 </div>
               </div>
               <p className="text-red-500 font bold">
@@ -70,7 +97,7 @@ function AddBlog() {
                     placeholder="Title"
                     name="title"
                     onChange={(e) => handleChange(e)}
-                    className="border-2 py-2 pr-[3em] pl-2  border-[#5de0e6] outline-none"
+                    className="border-2 py-2 pr-[3em] pl-2  border-[#5de0e6] rounded-md outline-none"
                   />
                 </div>
               </div>
@@ -82,7 +109,7 @@ function AddBlog() {
                     placeholder="Location"
                     name="location"
                     onChange={(e) => handleChange(e)}
-                    className="border-2 py-2 pr-[3em] pl-2  border-[#5de0e6] outline-none"
+                    className="border-2 py-2 pr-[3em] pl-2  border-[#5de0e6] rounded-md outline-none"
                   />
                 </div>
               </div>
@@ -92,7 +119,7 @@ function AddBlog() {
                     type="text"
                     placeholder="places to visit"
                     name="places to visit"
-                    className="border-2 py-2 pr-[3em] pl-2  border-[#5de0e6] outline-none"
+                    className="border-2 py-2 pr-[3em] pl-2  border-[#5de0e6] rounded-md outline-none"
                   />
                 </div>
               </div>
@@ -102,7 +129,7 @@ function AddBlog() {
                     type="text"
                     placeholder="Hotels"
                     name="Hotels"
-                    className="border-2 py-2 pr-[3em] pl-2  border-[#5de0e6] outline-none"
+                    className="border-2 py-2 pr-[3em] pl-2  border-[#5de0e6] rounded-md outline-none"
                   />
                 </div>
               </div>
@@ -110,7 +137,7 @@ function AddBlog() {
               <p className="text-red-500 font bold">{error.description && error.description}</p>
                 <div>
                   <textarea
-                    className="border-2 py-2 pr-[3em] pl-2  border-[#5de0e6] outline-none"
+                    className="border-2 py-2 pr-[3em] pl-2  border-[#5de0e6] rounded-md outline-none"
                     placeholder="Add Details and Activities"
                     name="description"
                     onChange={(e) => handleChange(e)}
@@ -125,15 +152,16 @@ function AddBlog() {
                 <div>
                   <input
                     type="file"
+                    onChange={(e) => onImageUpload(e)}  
                     placeholder="Add picture"
                     name="pictures"
-                    className="border-2 py-2 pr-[3em] pl-2  border-[#5de0e6] outline-none"
+                    className="border-2 py-2 pr-[3em] pl-2  border-[#5de0e6] rounded-md outline-none"
                     multiple
                   />
                 </div>
               </div>
             </div>
-            <button onClick={handleAddblog} className="bg-[linear-gradient(90deg,#004aad,#5de0e6)] rounded-lg border py-2 px-3">
+            <button onClick={handleAddblog} className="bg-[linear-gradient(90deg,#004aad,#5de0e6)] rounded-md border py-2 px-3">
               ADD
             </button>
           </div>

@@ -1,5 +1,6 @@
 
 
+
 function Footer() {
     return (
       <footer className="bg-[linear-gradient(90deg,#004aad,#5de0e6)] text-white py-12">
@@ -44,3 +45,4 @@ function Footer() {
     );
   }
   export default Footer;
+

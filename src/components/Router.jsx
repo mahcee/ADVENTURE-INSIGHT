@@ -10,12 +10,9 @@ import AllBlog from "../pages/AllBlog";
 import Travels from "../pages/Travels";
 import Addblog from "../pages/AddBlog";
 import Dashboard from "../pages/Dashboard";
+import Oneblog from "../pages/Oneblog";
 import AllAgencies from "./AllAgencies";
 import PrivateRoutes from "../utils/ProtectedRoute"
-
-
-
-
 function Router() {
   
   const {currentUser, setCurrentUser} = useContext(AdventureContext)
@@ -49,6 +46,14 @@ function Router() {
           element={
             <Layout>
               <Home />
+            </Layout>
+          }
+        />
+        <Route
+          path="/blog/:id"
+          element={
+            <Layout>
+              <Oneblog/>
             </Layout>
           }
         />
