@@ -1,27 +1,11 @@
-<<<<<<< mercy
 import Router from "./components/Router";
+import AdventureContextProvider from "./context/state";
 function App() {
   return (
-    <>
+    <AdventureContextProvider>
       <Router />
-     
-=======
-
-import Router from "./components/Router"
-
-function App() {
-  return (
-    <>
-      <div>
-        <Router></Router>
-      </div>
->>>>>>> development
-    </>
+    </AdventureContextProvider>
   );
 }
 
-<<<<<<< mercy
 export default App;
-=======
-export default App
->>>>>>> development

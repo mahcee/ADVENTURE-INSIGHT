@@ -6,7 +6,7 @@ function Logins() {
 
   const [formData, setFormData] = useState({})
   const[error,setError]=useState({})
-  const [errorMessage, setErrorMessage] = useState({});
+  const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
 const navigate=useNavigate();
@@ -28,7 +28,7 @@ async function handleLogin(e){
   if (!error === false) {
     setLoading(true);
 
-    const url = "http://localhost:5000/api/auth/signin";
+    const url = "https://adventure-insights-backend.onrender.com/api/auth/signin";
     const options = {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -43,6 +43,7 @@ async function handleLogin(e){
     if (response.ok) {
       localStorage.setItem('user', JSON.stringify(data));
       navigate("/dashboard");
+      window.location.reload()
 
 
     } else {
