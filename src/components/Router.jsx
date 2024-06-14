@@ -9,6 +9,7 @@ import AllBlog from "../pages/AllBlog";
 import Travels from "../pages/Travels";
 import Addblog from "../pages/AddBlog";
 import Dashboard from "../pages/Dashboard";
+import Oneblog from "../pages/Oneblog";
 function Router() {
   return (
     <BrowserRouter>
@@ -34,6 +35,14 @@ function Router() {
           element={
             <Layout>
               <Home />
+            </Layout>
+          }
+        />
+        <Route
+          path="/blog/:id"
+          element={
+            <Layout>
+              <Oneblog/>
             </Layout>
           }
         />

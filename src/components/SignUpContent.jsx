@@ -54,12 +54,12 @@ function SignUpContent(){
     return(
         <>
 
-<div className="bg-[linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('src/assets/bg-image.jpeg')] h-[100vh] bg-cover bg-no ">
+<div className="bg-[linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)),url('src/assets/bg-image.jpeg')] h-[100vh] bg-cover bg-no-repeat bg-center ">
                
-               <div className="flex justify-center items-center mt-9">
+               <div className="flex justify-center items-center">
                {/* {loading && <Loader />} */}
 
-      <div className="py-[7em] px-[7em] shadow-[0_0_5px_white] flex  flex-col items-center justify-between bg-white rounded-[20px]">
+      <div className="py-[7em] px-[7em] shadow-[0_0_5px_white] mt-[2rem] flex  flex-col items-center justify-between bg-white rounded-[20px]">
         <div>
           <h1 className="font-bold  text-3xl text-center mb-6">Create your account</h1>
         </div>
