@@ -4,6 +4,8 @@ function App() {
   return (
     <AdventureContextProvider>
       <Router />
+    </AdventureContextProvider>
+  );
 }
 
 export default App;

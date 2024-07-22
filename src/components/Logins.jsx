@@ -51,7 +51,6 @@ async function handleLogin(e){
       
     }
 
-
 }}
   return (
     <>
@@ -74,7 +73,7 @@ async function handleLogin(e){
               type="text"
               name="email"
               placeholder="Email"
-              className="border-2   border-solid border-[#5de0e6] py-[1em]  px-[3em]  rounded-lg my-4"
+              className="border-2  outline-none  border-solid border-[#5de0e6] py-[1em]  px-[3em]  rounded-lg my-4"
             
               onChange={(e) => handleInputChange(e)}
               disabled={loading}
@@ -91,7 +90,7 @@ async function handleLogin(e){
               type="password"
               name="password"
               placeholder="Password"
-              className="border-2   border-solid border-[#5de0e6]   py-[1em]  px-[3em]  rounded-lg outline-none my-4"
+              className="border-2 outline-none  border-solid border-[#5de0e6]   py-[1em]  px-[3em]  rounded-lg outline-none my-4"
          
               onChange={(e) => handleInputChange(e)}
               disabled={loading}

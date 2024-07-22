@@ -6,7 +6,7 @@ function Oneblogpost() {
   return (
     <div>
       {console.log(title)}
-      <img src={coverImg ? coverImg : "/src/assets/images/one.jpg"} />
+      <img className="w-[500px] h-[500px]" src={coverImg ? coverImg : "/src/assets/images/one.jpg"} />
       <div>
         <p>{title}</p>
         <p>{location && location}</p>

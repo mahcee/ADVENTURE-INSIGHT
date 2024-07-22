@@ -1,5 +1,5 @@
 
-
+import { Link, useNavigate } from "react-router-dom";
 
 function Footer() {
     return (
@@ -7,7 +7,7 @@ function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-            <img src="src/assets/images/logo-removebg-preview.png" className="w-[250px]"/>
+            <Link to="/"><img src="src/assets/images/logo-removebg-preview.png" className="w-[250px]"/></Link>
 
               <p>A brief description of the company and its services.</p>
             </div>
@@ -16,15 +16,26 @@ function Footer() {
                 Quick Links
               </h3>
               <ul>
-                <li>
-                  <a href="/">Home</a>
-                </li>
-                <li>
-                  <a href="/allagencies">AllTravelAgencies</a>
-                </li>
-                <li>
-                  <a href="/allblogs">Allblogs</a>
-                </li>
+              <Link to="/">
+              <li>Home</li>
+            </Link>
+            <Link to="/allblogs">
+              <li>All Blogs</li>
+            </Link>
+            <Link to="/addblog">
+              <li>Add Blog</li>
+            </Link>
+{/* 
+            <Link to="/postblog">
+              <li>Post a Blog</li>
+            </Link> */}
+            <Link to="/travels">
+              {" "}
+              <li>Add a Travel Agency</li>
+            </Link>
+            <Link to="/allagencies">
+              <li>All Travel agency</li>
+            </Link>
               </ul>
             </div>
             <div>
@@ -45,4 +56,3 @@ function Footer() {
     );
   }
   export default Footer;
-

@@ -70,7 +70,7 @@ function AddBlog() {
     reader.readAsDataURL(file);
   }
   return (
-    <div className="bg-[linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('src/assets/images/hero1.jpg')] h-[140vh] bg-no-repeat bg-cover bg-center">
+    <div className="bg-[linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('src/assets/images/hero1.jpg')] h-[140vh] bg-no-repeat bg-cover bg-center bg-fixed">
       <div className="flex  justify-center items-center">
         <form action="" className="py-[3rem]">
           <div className="bg-white p-[3em] flex flex-col justify-between gap-8">

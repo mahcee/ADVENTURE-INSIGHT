@@ -14,10 +14,11 @@ function Nav() {
     <nav className="sticky inset-0 z-30 w-full bg-[linear-gradient(90deg,#004aad,#5de0e6)]">
       <div className="flex items-center gap-[9rem] ">
         <div>
-          <img
+        <Link to="/"> <img
             src="src/assets/images/logo-removebg-preview.png"
             className="w-[250px]"
           />
+          </Link>
         </div>
         <div className="text-white">
           <ul className="flex justify-center text-lg gap-[2rem]">
@@ -27,10 +28,13 @@ function Nav() {
             <Link to="/allblogs">
               <li>All Blogs</li>
             </Link>
-
+            <Link to="/addblog">
+              <li>Add Blog</li>
+            </Link>
+{/* 
             <Link to="/postblog">
               <li>Post a Blog</li>
-            </Link>
+            </Link> */}
             <Link to="/travels">
               {" "}
               <li>Add a Travel Agency</li>
